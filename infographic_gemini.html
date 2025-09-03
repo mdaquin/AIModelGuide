@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<!-- created by gemini -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Model Selection Guide Infographic</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 320px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .flow-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+        .flow-arrow {
+            font-size: 2.5rem;
+            line-height: 1;
+            color: #0077C0;
+            align-self: center;
+            margin: 0 1rem;
+        }
+        .flow-arrow-down {
+            transform: rotate(90deg);
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body class="bg-[#F2F2F2] text-[#333333]">
+    
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-[#005082] mb-2">AI Model Selection Guide</h1>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto">A visual journey to choosing the right algorithm for your data, task, and constraints.</p>
+        </header>
+
+        <main>
+            <section class="bg-white rounded-lg shadow-xl p-6 md:p-8 mb-12">
+                <h2 class="text-3xl font-bold text-[#005082] mb-6 text-center">Your Decision-Making Flowchart</h2>
+                <p class="text-center text-gray-600 mb-8 max-w-2xl mx-auto">Follow this simple path to narrow down your model choices. Start with your data type, define your task, and then consider your project's specific constraints.</p>
+                <div class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-0">
+                    <div class="flow-step bg-[#F2F2F2] w-full md:w-1/4">
+                        <div class="text-4xl mb-2">📊</div>
+                        <h3 class="text-xl font-semibold text-[#0077C0]">1. Input Data</h3>
+                        <p class="text-sm">What does your data look like? (e.g., Tabular, Image, Text)</p>
+                    </div>
+                    <div class="flow-arrow flow-arrow-down md:flow-arrow-down-none md:transform-none">→</div>
+                    <div class="flow-step bg-[#F2F2F2] w-full md:w-1/4">
+                        <div class="text-4xl mb-2">🎯</div>
+                        <h3 class="text-xl font-semibold text-[#0077C0]">2. Output Task</h3>
+                        <p class="text-sm">What do you need to achieve? (e.g., Classify, Predict, Generate)</p>
+                    </div>
+                    <div class="flow-arrow flow-arrow-down md:flow-arrow-down-none md:transform-none">→</div>
+                    <div class="flow-step bg-[#F2F2F2] w-full md:w-1/4">
+                        <div class="text-4xl mb-2">⚙️</div>
+                        <h3 class="text-xl font-semibold text-[#0077C0]">3. Constraints</h3>
+                        <p class="text-sm">What are your limits? (e.g., Data Size, Speed, Explicability)</p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <section class="bg-white rounded-lg shadow-xl p-6">
+                    <h2 class="text-3xl font-bold text-[#005082] mb-2">1. Tabular Data</h2>
+                    <p class="text-gray-600 mb-6">For data in spreadsheets or databases, the trade-off is often between the raw power of complex models and the interpretability of simpler ones. Gradient Boosting models frequently hit the sweet spot.</p>
+                    <div class="chart-container">
+                        <canvas id="tabularChart"></canvas>
+                    </div>
+                     <p class="text-center text-sm text-gray-500 mt-4">This chart compares model families on a scale of performance versus their simplicity and speed. Simple models are great starting points, while deep learning excels with massive datasets.</p>
+                </section>
+
+                <section class="bg-white rounded-lg shadow-xl p-6">
+                    <h2 class="text-3xl font-bold text-[#005082] mb-2">2. Image Data</h2>
+                    <p class="text-gray-600 mb-6">For visual tasks, Convolutional Neural Networks (CNNs) are king. The choice depends on your specific goal, from simple classification to generating entirely new images.</p>
+                    <div class="chart-container">
+                        <canvas id="imageChart"></canvas>
+                    </div>
+                    <p class="text-center text-sm text-gray-500 mt-4">This radar chart shows the relative strengths of different model types for image tasks. Transfer learning is highly efficient for small datasets, while generative models are computationally intensive.</p>
+                </section>
+
+                <section class="bg-white rounded-lg shadow-xl p-6">
+                    <h2 class="text-3xl font-bold text-[#005082] mb-2">3. Text Data</h2>
+                    <p class="text-gray-600 mb-6">Natural Language Processing has been revolutionized by Transformer models. While older models are still useful for simple tasks, Transformers offer state-of-the-art understanding and generation capabilities.</p>
+                    <div class="chart-container">
+                        <canvas id="textChart"></canvas>
+                    </div>
+                    <p class="text-center text-sm text-gray-500 mt-4">This bubble chart visualizes text model families by performance and complexity. The size of the bubble represents the typical data size required for good results.</p>
+                </section>
+
+                <section class="bg-white rounded-lg shadow-xl p-6">
+                    <h2 class="text-3xl font-bold text-[#005082] mb-2">4. Sequence & Temporal Data</h2>
+                    <p class="text-gray-600 mb-6">When order matters, such as in time-series forecasting or DNA analysis, specialized architectures are needed to capture dependencies over time.</p>
+                    <div class="chart-container">
+                        <canvas id="sequenceChart"></canvas>
+                    </div>
+                    <p class="text-center text-sm text-gray-500 mt-4">This chart illustrates model suitability based on the complexity and length of a data sequence. Classical models work well for simple patterns, while Transformers excel at capturing long-range dependencies.</p>
+                </section>
+
+            </div>
+        </main>
+
+        <footer class="text-center mt-12 py-6 border-t border-gray-300">
+            <p class="text-gray-500">Infographic generated to visually guide AI model selection.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const brilliantBlues = {
+                bright: '#00A1E4',
+                medium: '#0077C0',
+                dark: '#005082',
+                lightGray: '#F2F2F2',
+                darkGray: '#333333'
+            };
+
+            const processLabel = (label, maxLength = 16) => {
+                if (label.length <= maxLength) {
+                    return label;
+                }
+                const words = label.split(' ');
+                const lines = [];
+                let currentLine = '';
+                words.forEach(word => {
+                    if ((currentLine + ' ' + word).trim().length > maxLength) {
+                        lines.push(currentLine.trim());
+                        currentLine = word;
+                    } else {
+                        currentLine = (currentLine + ' ' + word).trim();
+                    }
+                });
+                if (currentLine) {
+                    lines.push(currentLine.trim());
+                }
+                return lines;
+            };
+
+            const tooltipTitleCallback = (tooltipItems) => {
+                const item = tooltipItems[0];
+                let label = item.chart.data.labels[item.dataIndex];
+                if (Array.isArray(label)) {
+                    return label.join(' ');
+                } else {
+                    return label;
+                }
+            };
+
+            const defaultChartOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                         labels: {
+                            color: brilliantBlues.darkGray,
+                            font: {
+                                size: 14
+                            }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: { color: brilliantBlues.darkGray, font: { size: 12 } },
+                        grid: { display: false }
+                    },
+                    y: {
+                        ticks: { color: brilliantBlues.darkGray, font: { size: 12 } },
+                        grid: { color: '#e0e0e0' }
+                    }
+                }
+            };
+            
+            const tabularCtx = document.getElementById('tabularChart').getContext('2d');
+            new Chart(tabularCtx, {
+                type: 'bar',
+                data: {
+                    labels: [
+                        'Linear/Logistic Regression', 
+                        'Decision Trees', 
+                        'Random Forest', 
+                        'Gradient Boosting', 
+                        'Tabular Neural Networks'
+                    ].map(l => processLabel(l)),
+                    datasets: [{
+                        label: 'Performance vs. Simplicity Score',
+                        data: [65, 70, 85, 95, 90],
+                        backgroundColor: [
+                            brilliantBlues.bright,
+                            brilliantBlues.bright,
+                            brilliantBlues.medium,
+                            brilliantBlues.dark,
+                            brilliantBlues.medium
+                        ],
+                        borderColor: brilliantBlues.dark,
+                        borderWidth: 1
+                    }]
+                },
+                options: { ...defaultChartOptions, indexAxis: 'y' }
+            });
+            
+            const imageCtx = document.getElementById('imageChart').getContext('2d');
+            new Chart(imageCtx, {
+                type: 'radar',
+                data: {
+                    labels: ['Accuracy', 'Speed', ['Small Data', 'Efficiency'], 'Explicability', 'Task Versatility'],
+                    datasets: [{
+                        label: 'Transfer Learning (CNNs)',
+                        data: [8, 7, 9, 5, 7],
+                        backgroundColor: 'rgba(0, 161, 228, 0.2)',
+                        borderColor: brilliantBlues.bright,
+                        pointBackgroundColor: brilliantBlues.bright,
+                    }, {
+                        label: 'Generative Models (GANs)',
+                        data: [7, 4, 3, 2, 9],
+                        backgroundColor: 'rgba(0, 80, 130, 0.2)',
+                        borderColor: brilliantBlues.dark,
+                        pointBackgroundColor: brilliantBlues.dark,
+                    }]
+                },
+                options: { ...defaultChartOptions,
+                    scales: {
+                        r: {
+                            angleLines: { color: '#e0e0e0' },
+                            grid: { color: '#e0e0e0' },
+                            pointLabels: { font: { size: 12 }, color: brilliantBlues.darkGray },
+                            ticks: { display: false }
+                        }
+                    }
+                }
+            });
+
+            const textCtx = document.getElementById('textChart').getContext('2d');
+            new Chart(textCtx, {
+                type: 'bubble',
+                data: {
+                    datasets: [{
+                        label: 'Classical (TF-IDF)',
+                        data: [{x: 2, y: 5, r: 15}],
+                        backgroundColor: 'rgba(0, 161, 228, 0.7)',
+                    }, {
+                        label: 'RNNs (LSTM/GRU)',
+                        data: [{x: 6, y: 7, r: 25}],
+                        backgroundColor: 'rgba(0, 119, 192, 0.7)',
+                    }, {
+                        label: 'Transformers (BERT/GPT)',
+                        data: [{x: 9, y: 9.5, r: 35}],
+                        backgroundColor: 'rgba(0, 80, 130, 0.7)',
+                    }]
+                },
+                options: { ...defaultChartOptions,
+                    scales: {
+                        x: { ...defaultChartOptions.scales.x, title: { display: true, text: 'Model Complexity', color: brilliantBlues.darkGray } },
+                        y: { ...defaultChartOptions.scales.y, title: { display: true, text: 'Relative Performance', color: brilliantBlues.darkGray } }
+                    }
+                }
+            });
+
+            const sequenceCtx = document.getElementById('sequenceChart').getContext('2d');
+            new Chart(sequenceCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Short & Simple', 'Medium Length', 'Complex Patterns', 'Very Long Range', 'Highly Multivariate'],
+                    datasets: [{
+                        label: 'Classical (ARIMA)',
+                        data: [9, 6, 3, 1, 0],
+                        borderColor: brilliantBlues.bright,
+                        backgroundColor: 'rgba(0, 161, 228, 0.1)',
+                        fill: true,
+                        tension: 0.4
+                    }, {
+                        label: 'RNNs (LSTM)',
+                        data: [4, 8, 9, 7, 8],
+                        borderColor: brilliantBlues.medium,
+                        backgroundColor: 'rgba(0, 119, 192, 0.1)',
+                        fill: true,
+                        tension: 0.4
+                    }, {
+                        label: 'Transformers',
+                        data: [2, 5, 7, 9.5, 9],
+                        borderColor: brilliantBlues.dark,
+                        backgroundColor: 'rgba(0, 80, 130, 0.1)',
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: { ...defaultChartOptions,
+                    scales: {
+                        x: { ...defaultChartOptions.scales.x, title: { display: true, text: 'Sequence Complexity / Length', color: brilliantBlues.darkGray } },
+                        y: { ...defaultChartOptions.scales.y, title: { display: true, text: 'Model Suitability', color: brilliantBlues.darkGray } }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
